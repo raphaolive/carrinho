@@ -1,6 +1,5 @@
 /* theme.ts */
 import { extendTheme } from "@chakra-ui/react";
-import { color } from "framer-motion";
 
 export const theme = extendTheme({
   colors: {
