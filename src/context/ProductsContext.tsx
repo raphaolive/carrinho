@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Dispatch,
   ReactNode,
@@ -35,8 +34,11 @@ export const ProductsContextProvider = ({
   children,
 }: ProductsContextProviderProp) => {
   const [products, setProducts] = useState<Products>(() => {
-    const storedProducts = localStorage.getItem("localProducts");
-    return storedProducts ? JSON.parse(storedProducts) : [];
+    if (typeof window !== "undefined") {
+      const storedProducts = localStorage.getItem("localProducts");
+      return storedProducts ? JSON.parse(storedProducts) : [];
+    }
+    return [];
   });
 
   const totalPrice = products.length
